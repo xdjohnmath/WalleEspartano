@@ -3,48 +3,83 @@ using System.Collections;
 
 public class Box : MonoBehaviour {
 
+    //Inicialização de variáveis
     public float speed;
-    public direction boxDirection;
+    public int speedMod;
+    public direction dir;
+    public bool mayMove = false;
+    
+    //Default modificador de velocidade
+    void Start () {
+        speedMod = 50;
+    }
 
-    void OnCollisionEnter2D (Collision2D other) {
+    //Colisão das caixas com os objetos
+    void OnCollisionStay2D (Collision2D other) {
+        //Colisão com a esteira
         if (other.gameObject.tag == "Treadmill") {
-            speed = other.gameObject.GetComponent<ObjectsManager> ().boxSpeed;
-            boxDirection = other.gameObject.GetComponent<ObjectsManager> ().dir;
+            //Setta as variaveis das caixas para serem iguais as váriaveis das esteiras 
+            speed = other.gameObject.GetComponent<ObjectsManager> ().boxSpeed * speedMod;
+            dir = other.gameObject.GetComponent<ObjectsManager> ().dir;
+            //Pode se mover
+            mayMove = true;
         }
     }
 
-    void OnTriggerEnter2D (Collider2D other) {
-        if (other.gameObject.name == "EndPhase") {
-            Destroy (this.gameObject);
-        }
-        if (other.gameObject.name == "Furnace") {
-            Destroy (this.gameObject);
-        }
-    }
-
-    void Update () {
-        Movement (boxDirection, speed);
-    }
-
+    //Ao sair da colisão
     void OnCollisionExit2D (Collision2D other) {
+        //Se for com a esteira
         if (other.gameObject.tag == "Treadmill") {
+            //Não pode mais andar e a velocidade volta a ser 0
+            mayMove = false;
             speed = 0;
         }
     }
 
-    public void Movement (direction dir, float speed) {
-        if (dir == direction.left) {
-            transform.Translate (Vector2.left * speed * Time.deltaTime);
+    //Ao colidir com o trigger 
+    void OnTriggerEnter2D (Collider2D other) {
+        //trigger do cano do fim da fase
+        if (other.gameObject.name == "EndPhase") {
+            //Destroi e soma um nas caixas ganhas
+            Destroy (this.gameObject);
+            BoxManager.instance.wonBoxes++;
         }
-        else if (dir == direction.right) {
-            transform.Translate (Vector2.right * speed * Time.deltaTime);
+        //trigger da fornalha
+        if (other.gameObject.name == "Furnace") {
+            //destroi e soma um nas caixas perdidas
+            Destroy (this.gameObject);
+            BoxManager.instance.lostBoxes++;
         }
-        else if (dir == direction.up) {
-            transform.Translate (Vector2.up * speed * Time.deltaTime);
-        }
-        else if (dir == direction.down) {
-            transform.Translate (Vector2.down * speed * Time.deltaTime);
+        //destroi caixa
+        if (other.gameObject.tag == "BoxDestroyer") {
+            Destroy (this.gameObject);
         }
     }
+    
+    //Se puder se mover, chama função de mover
+    void FixedUpdate () {
+        if (mayMove) {
+            MoveBoxes (dir, speed);
+
+        }
+    }
+
+    //Adiciona força dada a direção e a velocidade do objeto que ele tá 
+    public void MoveBoxes (direction dir, float speed) {
+         if (dir == direction.left) {
+            gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.left * speed, ForceMode2D.Force);
+        }
+        else if (dir == direction.right) {
+            gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * speed, ForceMode2D.Force);
+        }
+        else if (dir == direction.up) {
+            gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.up * speed, ForceMode2D.Force);
+        }
+        else if (dir == direction.down) {
+            gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.down * speed, ForceMode2D.Force);
+        }
+    }
+
+
 
 }

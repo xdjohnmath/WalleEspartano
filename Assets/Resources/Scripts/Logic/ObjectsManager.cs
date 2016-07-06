@@ -20,7 +20,9 @@ public class ObjectsManager : MonoBehaviour{
     public float rotationSpeed;
     public float movementSpeed;
     public float boxSpeed = 2;
-    public float leftEdge, rightEdge, upEdge, downEdge; 
+    public float leftEdge, rightEdge, upEdge, downEdge;
+
+    public bool canMoveDirection = true;
 
     void Start () {
         //Settando as coisas
@@ -29,15 +31,29 @@ public class ObjectsManager : MonoBehaviour{
         
     }
 
-    void Update () {
+    void FixedUpdate () {
+        //Settando movimento e rotação dos objetos que se movimentam/rotacionam na fase
         Movement (dir, movementSpeed);
         Rotation (rotDir, rotationSpeed);
-        if (Input.GetKeyDown (KeyCode.Space)) {
+
+        //mudando movimento e rotação ao digitar
+        if (Input.anyKeyDown && canMoveDirection == true) {
             ChangeMovementDirection (dir);
             ChangeRotationDirection (rotDir);
         }
+
+        //Se o objeto se movimenta, ele tem limites
         if (movementSpeed != 0) {
             Borders (leftEdge, rightEdge, upEdge, downEdge);
+        }
+
+    }
+
+    //mudando movimento e rotação ao clicar
+    void OnMouseDown () {
+        if (canMoveDirection == true) {
+            ChangeMovementDirection (dir);
+            ChangeRotationDirection (rotDir);
         }
     }
 
@@ -63,6 +79,7 @@ public class ObjectsManager : MonoBehaviour{
         }
     }
 
+    //Settando so tipos de objetos - Caso adicionado enum no objectsTypes, adicionar cases aqui
     public void SettingType () {
         switch (types) {
             case objetcsTypes.treadmill:
@@ -136,6 +153,7 @@ public class ObjectsManager : MonoBehaviour{
         }
     }
 
+    //Método para dar limites
     public void Borders (float left, float right, float up, float down) {
         if (transform.position.x <= left) {
             dir = direction.right;
@@ -150,5 +168,7 @@ public class ObjectsManager : MonoBehaviour{
             dir = direction.up;
         }
     }
+
+    
 
 }

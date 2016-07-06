@@ -4,21 +4,41 @@ using System;
 
 public class BoxManager : MonoBehaviour {
 
+    //Singleton
+    public static BoxManager instance = null;
+
+    //Inicialização dos Objetos e variáveis
     GameObject launcher;
     public GameObject box;
+    public int wonBoxes, lostBoxes;
 
-	void Awake () {
+    void Awake () {
+        //Settando Singleton
+        if (instance == null) {
+            instance = this;
+        }
+        else if (instance != this) {
+            Destroy (gameObject);
+        }
+        //Pega objeto Launcher
         launcher = GameObject.Find ("Launcher");
-	}
 
-	// Update is called once per frame
-	void Update () {
-	    if (Input.GetKeyDown (KeyCode.Space)) {
-            SetBoxPosition ();
+    }
+
+	// Instacia a caixa ao digitar
+	void LateUpdate () {
+        if ((Input.anyKeyDown)) {
+            InstantiateBox ();
         }
 	}
 
-    void SetBoxPosition () {
+    // Instacia a caixa ao clicar
+    void OnMouseDown () {
+        InstantiateBox ();
+    }
+
+    // Método de instaciar as caixas
+    void InstantiateBox () {
         Instantiate (box, launcher.transform.position, Quaternion.identity);
     }
 
