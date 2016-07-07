@@ -8,7 +8,7 @@ public class Box : MonoBehaviour {
     public int speedMod;
     public direction dir;
     public bool mayMove = false;
-    
+
     //Default modificador de velocidade
     void Start () {
         speedMod = 50;
@@ -24,6 +24,9 @@ public class Box : MonoBehaviour {
             //Pode se mover
             mayMove = true;
         }
+
+        if (other.gameObject.tag == "Press") {
+        }
     }
 
     //Ao sair da colisão
@@ -33,6 +36,8 @@ public class Box : MonoBehaviour {
             //Não pode mais andar e a velocidade volta a ser 0
             mayMove = false;
             speed = 0;
+        }
+        if (other.gameObject.tag == "Press") {
         }
     }
 

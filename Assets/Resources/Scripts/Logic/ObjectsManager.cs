@@ -22,10 +22,11 @@ public class ObjectsManager : MonoBehaviour{
     public float boxSpeed = 2;
     public float leftEdge, rightEdge, upEdge, downEdge;
 
-    public bool canMoveDirection = true;
-
+    public bool canMoveDirection, movePress, pressActive;
+ 
     void Start () {
         //Settando as coisas
+
         SettingType ();
         SettingObjetcNameAndTag (types, this.gameObject);
         
@@ -33,7 +34,14 @@ public class ObjectsManager : MonoBehaviour{
 
     void FixedUpdate () {
         //Settando movimento e rotação dos objetos que se movimentam/rotacionam na fase
-        Movement (dir, movementSpeed);
+        if (movePress == true) {
+            MovementPhysics (dir, movementSpeed);
+            MovePress (dir, movementSpeed);
+        }
+        else {
+            Movement (dir, movementSpeed);
+        }
+
         Rotation (rotDir, rotationSpeed);
 
         //mudando movimento e rotação ao digitar
@@ -41,7 +49,6 @@ public class ObjectsManager : MonoBehaviour{
             ChangeMovementDirection (dir);
             ChangeRotationDirection (rotDir);
         }
-
         //Se o objeto se movimenta, ele tem limites
         if (movementSpeed != 0) {
             Borders (leftEdge, rightEdge, upEdge, downEdge);
@@ -97,7 +104,7 @@ public class ObjectsManager : MonoBehaviour{
         }
     }
 
-    //Método para movimentar os objetos
+    //Método para movimentar os objetos sem física
     public void Movement (direction dir, float speed) {
         if (dir == direction.left) {
             transform.Translate (Vector2.left * speed * Time.deltaTime);
@@ -110,6 +117,82 @@ public class ObjectsManager : MonoBehaviour{
         }
         else if (dir == direction.down) {
             transform.Translate (Vector2.down * speed * Time.deltaTime);
+        }
+    }
+
+    //Método para movimentar os objetos com física
+    public void MovementPhysics (direction dir, float speed) {
+        if (dir == direction.left) {
+            gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.left * speed, ForceMode2D.Force);
+        }
+        else if (dir == direction.right) {
+            gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * speed, ForceMode2D.Force);
+        }
+        else if (dir == direction.up) {
+            gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.up * speed, ForceMode2D.Force);
+        }
+        else if (dir == direction.down) {
+            gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.down * speed, ForceMode2D.Force);
+        }
+    }
+
+   void OnCollisionEnter2D (Collision2D other) {
+        if (other.gameObject.tag == "Press") {
+            StartCoroutine (DelayPress (1f));
+        }
+        if (other.gameObject.tag == "Stop") {
+            StartCoroutine (DelayPress (2f));
+            StartCoroutine (PressActivator (3f));
+            
+        }
+    }
+
+    IEnumerator DelayPress (float t) {
+        yield return new WaitForSeconds (t);
+        pressActive = false;
+    }
+
+    IEnumerator PressActivator (float t) {
+        yield return new WaitForSeconds (t);
+        pressActive = true;
+        
+    }
+
+    public void MovePress (direction dir, float speed) {
+        if (dir == direction.left) {
+            if (pressActive == true) {
+                gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.left * speed * 10, ForceMode2D.Impulse);
+            }
+            else {
+                gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * speed * 0.1f, ForceMode2D.Impulse);
+            }
+        }
+        else if (dir == direction.right) {
+            if (pressActive == true) {
+                gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * speed * 10, ForceMode2D.Impulse);
+            }
+            else {
+                gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.left * speed * 0.1f, ForceMode2D.Impulse);
+
+            }
+        }
+        else if (dir == direction.up) {
+            if (pressActive == true) {
+                gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.up * speed * 10, ForceMode2D.Impulse);
+            }
+            else {
+                gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.down * speed * 0.1f, ForceMode2D.Impulse);
+
+            }
+        }
+        else if (dir == direction.down) {
+            if (pressActive == true) {
+                gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.down * speed * 10, ForceMode2D.Impulse);
+            }
+            else {
+                gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.up * speed * 0.1f, ForceMode2D.Impulse);
+
+            }
         }
     }
 
