@@ -28,10 +28,11 @@ public class ObjectsManager : MonoBehaviour{
 
     void Start () {
         //Settando as coisas
-        anim = gameObject.GetComponent<Animator>();
         SettingType ();
         SettingObjetcNameAndTag (types, this.gameObject);
-        
+        if (types == objetcsTypes.treadmill) {
+            anim = gameObject.GetComponent<Animator> ();
+        }
     }
 
     void FixedUpdate () {
@@ -105,11 +106,17 @@ public class ObjectsManager : MonoBehaviour{
     public void Movement (direction dir, float speed) {
         if (dir == direction.left) {
             transform.Translate (Vector2.left * speed * Time.deltaTime);
-            anim.SetInteger ("Treadmill Direction", 0);
+            if (types == objetcsTypes.treadmill) {
+                anim.SetInteger ("Treadmill Direction", 0);
+
+            }
         }
         else if (dir == direction.right) {
             transform.Translate (Vector2.right * speed * Time.deltaTime);
-            anim.SetInteger ("Treadmill Direction", 1);
+            if (types == objetcsTypes.treadmill) {
+                anim.SetInteger ("Treadmill Direction", 1);
+
+            }
 
         }
         else if (dir == direction.up) {
