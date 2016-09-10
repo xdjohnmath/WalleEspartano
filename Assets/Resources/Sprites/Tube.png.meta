@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: 382c9346b66d2e24a91bcf4f34749409
-timeCreated: 1473449389
+guid: 19f97e854e6f7a3418f2a17d7ed1c86f
+timeCreated: 1473533154
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Tube_0
+    21300002: Tube_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,7 +40,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -50,13 +52,39 @@ TextureImporter:
   textureType: 8
   buildTargetSettings:
   - buildTarget: Standalone
-    maxTextureSize: 512
+    maxTextureSize: 1024
     textureFormat: -3
     compressionQuality: 50
     allowsAlphaSplitting: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Tube_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 22
+        width: 364
+        height: 741
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tube_1
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 273
+        width: 57
+        height: 355
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
