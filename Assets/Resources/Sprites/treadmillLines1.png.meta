@@ -1,12 +1,9 @@
 fileFormatVersion: 2
-guid: 87bee26e95963094ea12e1c3cf3eeb7d
-timeCreated: 1473515038
+guid: f1010e6b88f39364f9ee3a6e86244085
+timeCreated: 1473524094
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: treadmillLines1_0
-    21300002: treadmillLines1_1
-    21300004: treadmillLines1_2
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -41,64 +38,25 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 300
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings:
   - buildTarget: Standalone
-    maxTextureSize: 512
+    maxTextureSize: 1024
     textureFormat: -3
     compressionQuality: 50
     allowsAlphaSplitting: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: treadmillLines1_0
-      rect:
-        serializedVersion: 2
-        x: 165
-        y: 4
-        width: 12
-        height: 538
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: treadmillLines1_1
-      rect:
-        serializedVersion: 2
-        x: 293
-        y: 40
-        width: 24
-        height: 546
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: treadmillLines1_2
-      rect:
-        serializedVersion: 2
-        x: 436
-        y: 111
-        width: 21
-        height: 389
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 

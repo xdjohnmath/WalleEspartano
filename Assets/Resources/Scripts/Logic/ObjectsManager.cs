@@ -24,8 +24,11 @@ public class ObjectsManager : MonoBehaviour{
 
     public bool canMoveDirection = true;
 
+    Animator anim;
+
     void Start () {
         //Settando as coisas
+        anim = gameObject.GetComponent<Animator>();
         SettingType ();
         SettingObjetcNameAndTag (types, this.gameObject);
         
@@ -56,6 +59,7 @@ public class ObjectsManager : MonoBehaviour{
             ChangeRotationDirection (rotDir);
         }
     }
+
 
     //Método de Settar nome e tag - Caso adicionado enum no objectsTypes, adicionar cases aqui
 	public void SettingObjetcNameAndTag (objetcsTypes objType, GameObject obj) {
@@ -101,9 +105,12 @@ public class ObjectsManager : MonoBehaviour{
     public void Movement (direction dir, float speed) {
         if (dir == direction.left) {
             transform.Translate (Vector2.left * speed * Time.deltaTime);
+            anim.SetInteger ("Treadmill Direction", 0);
         }
         else if (dir == direction.right) {
             transform.Translate (Vector2.right * speed * Time.deltaTime);
+            anim.SetInteger ("Treadmill Direction", 1);
+
         }
         else if (dir == direction.up) {
             transform.Translate (Vector2.up * speed * Time.deltaTime);
