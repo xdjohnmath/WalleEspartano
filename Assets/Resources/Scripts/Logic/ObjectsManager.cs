@@ -6,7 +6,6 @@ public enum direction { left, right, up, down };
 public enum rotationDirection { left, right};
 public enum objetcsTypes { treadmill, engine, press, springs };
 
-
 public class ObjectsManager : MonoBehaviour{
 
     //Inicialização dos enums
@@ -21,7 +20,6 @@ public class ObjectsManager : MonoBehaviour{
     public float movementSpeed;
     public float boxSpeed = 2;
     public float leftEdge, rightEdge, upEdge, downEdge;
-
     public bool canMoveDirection = true;
 
     Animator anim;
@@ -50,8 +48,10 @@ public class ObjectsManager : MonoBehaviour{
         if (movementSpeed != 0) {
             Borders (leftEdge, rightEdge, upEdge, downEdge);
         }
+       
 
     }
+
 
     //mudando movimento e rotação ao clicar
     void OnMouseDown () {
@@ -60,7 +60,6 @@ public class ObjectsManager : MonoBehaviour{
             ChangeRotationDirection (rotDir);
         }
     }
-
 
     //Método de Settar nome e tag - Caso adicionado enum no objectsTypes, adicionar cases aqui
 	public void SettingObjetcNameAndTag (objetcsTypes objType, GameObject obj) {

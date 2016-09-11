@@ -53,6 +53,7 @@ public class Box : MonoBehaviour {
         //destroi caixa
         if (other.gameObject.tag == "BoxDestroyer") {
             Destroy (this.gameObject);
+            print ("hi");
         }
     }
     
