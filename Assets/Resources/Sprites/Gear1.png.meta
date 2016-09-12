@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a1a345ce3d70c3041bce31833a94d6b9
-timeCreated: 1473535475
+guid: 641da4e5f4ef2314ea7fa75e01a9854f
+timeCreated: 1473702752
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,8 +8,6 @@ TextureImporter:
     21300002: Gear1_1
     21300004: Gear1_2
     21300006: Gear1_3
-    21300008: Gear1_4
-    21300010: Gear1_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -56,7 +54,7 @@ TextureImporter:
   textureType: 8
   buildTargetSettings:
   - buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     textureFormat: -3
     compressionQuality: 50
     allowsAlphaSplitting: 0
@@ -67,10 +65,10 @@ TextureImporter:
       name: Gear1_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 623
-        width: 177
-        height: 112
+        x: 36
+        y: 618
+        width: 187
+        height: 122
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -80,10 +78,10 @@ TextureImporter:
       name: Gear1_1
       rect:
         serializedVersion: 2
-        x: 225
-        y: 120
-        width: 520
-        height: 521
+        x: 237
+        y: 105
+        width: 551
+        height: 549
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -93,10 +91,10 @@ TextureImporter:
       name: Gear1_2
       rect:
         serializedVersion: 2
-        x: 837
-        y: 567
-        width: 109
-        height: 174
+        x: 35
+        y: 312
+        width: 177
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -106,36 +104,10 @@ TextureImporter:
       name: Gear1_3
       rect:
         serializedVersion: 2
-        x: 12
-        y: 318
-        width: 167
-        height: 167
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Gear1_4
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 33
-        width: 109
-        height: 175
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Gear1_5
-      rect:
-        serializedVersion: 2
-        x: 798
-        y: 22
-        width: 176
-        height: 109
+        x: 36
+        y: 28
+        width: 119
+        height: 185
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
