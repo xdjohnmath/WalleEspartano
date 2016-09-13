@@ -8,6 +8,10 @@ public class Hud : MonoBehaviour {
     public Text wonBoxesT;
     public Text lostBoxesT;
 
+    void Awake () {
+        Screen.SetResolution (1024, 768, true);
+    }
+
 	void Update () {
 
         if (BoxManager.instance.lostBoxes > BoxManager.instance.wonBoxes+50) {
