@@ -55,6 +55,15 @@ public class Box : MonoBehaviour {
             Destroy (this.gameObject);
             print ("hi");
         }
+        if (other.gameObject.tag == "Crusher") {
+            this.gameObject.transform.localScale -= new Vector3 (0.01f, 0.01f);
+            StartCoroutine (DelayDestroyer (3f));
+        }
+    }
+
+    IEnumerator DelayDestroyer (float f) {
+        yield return new WaitForSeconds (f);
+        Destroy (this.gameObject);
     }
     
     //Se puder se mover, chama função de mover
