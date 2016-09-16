@@ -1,0 +1,7 @@
+I've been trying to create a list, and even when I just copy/paste 
+the variable declaration from someone's code here on the Answers or the forums I get this error:
+
+The type or namespace name 'List 1' Could not be found. Are you missing an assembly reference or directive?
+
+Which doesn't make sense because people used the exact same code I did and didn't get this error. 
+What am I doing wrong here?
