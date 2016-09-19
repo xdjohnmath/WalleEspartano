@@ -51,7 +51,7 @@ public class Box : MonoBehaviour {
             BoxManager.instance.lostBoxes++;
         }
         //destroi caixa
-        if (other.gameObject.tag == "BoxDestroyer") {
+        if (other.gameObject.tag == "BoxDestroyer" && gameObject.tag == "Box") {
             Destroy (this.gameObject);
             print ("hi");
         }
@@ -83,10 +83,10 @@ public class Box : MonoBehaviour {
             gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * speed, ForceMode2D.Force);
         }
         else if (dir == direction.up) {
-            gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.up * speed, ForceMode2D.Force);
+            gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * speed, ForceMode2D.Force);
         }
         else if (dir == direction.down) {
-            gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.down * speed, ForceMode2D.Force);
+            gameObject.GetComponent<Rigidbody2D> ().AddForce (Vector2.left * speed, ForceMode2D.Force);
         }
     }
 

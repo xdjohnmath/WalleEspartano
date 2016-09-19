@@ -146,10 +146,10 @@ public class ObjectsManager : MonoBehaviour{
                 dir = direction.left;
             break;
             case direction.up:
-                dir = direction.up;
+                dir = direction.down;
             break;
             case direction.down:
-                dir = direction.down;
+                dir = direction.up;
             break;
         }
     }
@@ -175,10 +175,10 @@ public class ObjectsManager : MonoBehaviour{
             dir = direction.left;
         }
         else if (transform.position.y <= down) {
-            dir = direction.down;
+            dir = direction.up;
         }
         else if (transform.position.y >= up) {
-            dir = direction.up;
+            dir = direction.down;
         }
     }
 
