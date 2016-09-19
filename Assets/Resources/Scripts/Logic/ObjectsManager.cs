@@ -107,22 +107,26 @@ public class ObjectsManager : MonoBehaviour{
             transform.Translate (Vector2.left * speed * Time.deltaTime);
             if (types == objetcsTypes.treadmill) {
                 anim.SetInteger ("Treadmill Direction", 0);
-
             }
         }
         else if (dir == direction.right) {
             transform.Translate (Vector2.right * speed * Time.deltaTime);
             if (types == objetcsTypes.treadmill) {
                 anim.SetInteger ("Treadmill Direction", 1);
-
             }
 
         }
         else if (dir == direction.up) {
             transform.Translate (Vector2.up * speed * Time.deltaTime);
+            if (types == objetcsTypes.treadmill) {
+                anim.SetInteger ("Treadmill Direction", 1);
+            }
         }
         else if (dir == direction.down) {
             transform.Translate (Vector2.down * speed * Time.deltaTime);
+            if (types == objetcsTypes.treadmill) {
+                anim.SetInteger ("Treadmill Direction", 0);
+            }
         }
     }
 
