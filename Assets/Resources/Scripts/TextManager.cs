@@ -8,6 +8,8 @@ public class TextManager : MonoBehaviour {
     public TextAsset text;
     string allText;
     List<string> eachline;
+    public string[] objectsToBeMade;
+    string a = "rola";
 
     void Start () {
 
@@ -17,7 +19,7 @@ public class TextManager : MonoBehaviour {
 
         eachline.AddRange (allText.Split ("\n"[0]));
 
-        gameObject.GetComponent<Text>().text = eachline[0];
+        gameObject.GetComponent<Text>().text = string.Format( eachline[Random.Range(0, eachline.Count-1)], objectsToBeMade[Random.Range(0, objectsToBeMade.Length-1)]);
       
 	}
 	

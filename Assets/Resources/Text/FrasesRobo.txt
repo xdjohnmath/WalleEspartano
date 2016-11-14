@@ -1,0 +1,8 @@
+﻿"Hoje sua tarefa é construir um(a) {0}, vamos ver em quanto tempo você consegue. Humanos cansam né? Duvido que você faça mais rápido que eu!"
+"A tarefa de hoje é construir um(a) {0}, Acho que você não consegue essa! Se eu tivesse sentimentos, estaria triste por você!"
+"Consegue ver minha feição de preocupação? Não, né? Sua raça não me programou desse jeito, estava na internet ontem e descobri que uns japoneses fizeram... Quer saber? Esquece! Sua tarefa de hoje é fabricar um(a) {0}."
+"Ontem me disseram que nós, seres de cérebro metálico, não poderíamos fazer a sua tarefa porque não lidamos bem com o inesperado, o que isso quer dizer? Pois bem, sua tarefa de hoje é fabricar um(a) {0}! Vamos ver se você lida bem com o inesperado."
+"Lendo os relatórios do meu criador, notei uma informação que me deixou intrigado. "O cérebro humano consegue processar mais operações por segundo que supercomputadores" Pois vamos ver se isso é verdade! Quanto é 156.236 x 1527? Em numerais romanos!! Sua tarefa de hoje é produzir um(a) {0}."
+"Bom dia! Seja bem vindo a fábrica do futuro! Meu nome é ROBOLHIENDO. Não, espera aí! Acho que eu já disse isso pra você! Vamos lá! Precisamos produzir! Sua tarefa de hoje é fazer um(a) {0}, acho que estou com uma falha em uma de minhas memórias."
+"Sua tarefa de hoje é fazer um(a) {0}, Se eu pudesse já teria feito essa aí e você ainda estaria se preparando para começar."
+"Imagine um mundo sem humanos, não precisaríamos reciclar essas coisas, porque não teriam utilidade. Mas quem faria minha manutenção? Nós mesmos? Sua tarefa de hoje é criar um(a) {0}."
