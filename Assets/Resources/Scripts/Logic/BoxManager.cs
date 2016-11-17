@@ -35,11 +35,12 @@ public class BoxManager : MonoBehaviour {
     // Instacia a caixa ao clicar
     void OnMouseDown () {
         InstantiateBox ();
+
     }
 
     // Método de instaciar as caixas
     void InstantiateBox () {
         Instantiate (box, launcher.transform.position, Quaternion.identity);
     }
-
+		
 }
